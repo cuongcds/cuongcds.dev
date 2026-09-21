@@ -27,32 +27,32 @@ const { product: p, level } = Astro.props;
   }
   .level-card::before {
     content: ''; position: absolute; inset: 0 0 auto 0; height: 6px;
-    background: linear-gradient(90deg, #ef4f3f 0 33%, #ffe65c 33% 66%, #3fd3cc 66% 100%);
+    background: linear-gradient(90deg, #a94b42 0 33%, #b69a48 33% 66%, #397c79 66% 100%);
   }
-  .level-card.status-alpha::before { background: #ef4f3f; }
-  .level-card.status-beta::before { background: #3fd3cc; }
-  .level-card.status-coming-soon::before { background: repeating-linear-gradient(90deg, #ffe65c 0 10px, #111722 10px 20px); }
+  .level-card.status-alpha::before { background: #a94b42; }
+  .level-card.status-beta::before { background: #397c79; }
+  .level-card.status-coming-soon::before { background: repeating-linear-gradient(90deg, #b69a48 0 10px, #111722 10px 20px); }
 
   .level-hud { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; font-family: 'IBM Plex Mono', monospace; text-align: left; }
-  .level-num { padding: 2px 8px; color: #111722; background: #ffe65c; border: 2px solid #151821; border-radius: 999px; font-weight: 700; font-size: .68rem; letter-spacing: .1em; }
+  .level-num { padding: 2px 8px; color: #111722; background: #c8b36a; border: 2px solid #151821; border-radius: 999px; font-weight: 700; font-size: .68rem; letter-spacing: .1em; }
   .level-status { padding: 2px 8px; border: 2px solid currentColor; border-radius: 999px; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-  .status-live .level-status { color: #15814a; background: #e2f6e8; }
-  .status-alpha .level-status { color: #ef4f3f; background: #fdeae7; }
-  .status-beta .level-status { color: #0c7f78; background: #e0f5f3; }
-  .status-coming-soon .level-status { color: #8a6d00; background: #fff3b8; }
-  .level-score { margin-left: auto; padding: 2px 8px; color: #111722; background: #ffe65c; border: 2px solid #151821; border-radius: 999px; font-weight: 700; font-size: .7rem; }
+  .status-live .level-status { color: #32633f; background: #dbe5d8; }
+  .status-alpha .level-status { color: #873c35; background: #eadbd5; }
+  .status-beta .level-status { color: #326e6a; background: #d7e4e1; }
+  .status-coming-soon .level-status { color: #705c22; background: #ded2ad; }
+  .level-score { margin-left: auto; padding: 2px 8px; color: #111722; background: #c8b36a; border: 2px solid #151821; border-radius: 999px; font-weight: 700; font-size: .7rem; }
 
   .level-avatar {
     display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto 12px;
     font-size: 2.1rem; background: #090c13; border: 3px solid #151821; border-radius: 14px;
-    box-shadow: 3px 3px 0 #15101c, inset 0 0 18px rgba(63, 211, 204, .25);
+    box-shadow: 3px 3px 0 #15101c, inset 0 0 18px rgba(57, 124, 121, .28);
     transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
   }
-  .level-card:hover .level-avatar { transform: scale(1.06); border-color: #ffe65c; box-shadow: 3px 3px 0 #15101c, inset 0 0 18px rgba(255, 230, 92, .35); }
+  .level-card:hover .level-avatar { transform: scale(1.06); border-color: #b69a48; box-shadow: 3px 3px 0 #15101c, inset 0 0 18px rgba(182, 154, 72, .3); }
 
-  .level-card h3 { margin: 0 0 6px; font-family: Bungee, system-ui, sans-serif; font-size: 1.05rem; font-weight: 400; letter-spacing: .01em; line-height: 1.2; text-transform: uppercase; text-shadow: 2px 2px 0 #ffe65c; }
+  .level-card h3 { margin: 0 0 6px; font-family: Bungee, system-ui, sans-serif; font-size: 1.05rem; font-weight: 400; letter-spacing: .01em; line-height: 1.2; text-transform: uppercase; text-shadow: 2px 2px 0 #c8b36a; }
   .level-card h3 a::after { content: ''; position: absolute; inset: 0; border-radius: 10px; }
-  .level-go { display: inline-block; color: #ef4f3f; font-size: .7em; opacity: 0; transform: translateX(-6px); transition: opacity .12s ease, transform .12s ease; }
+  .level-go { display: inline-block; color: #a94b42; font-size: .7em; opacity: 0; transform: translateX(-6px); transition: opacity .12s ease, transform .12s ease; }
   .level-card:hover .level-go, .level-card:focus-within .level-go { opacity: 1; transform: none; }
   .level-tagline { margin: 0 0 10px; min-height: 2.6em; color: #3a4256; font-size: .95rem; line-height: 1.45; }
   .level-meta { margin: 0; padding-bottom: 6px; color: #5a6376; font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; }

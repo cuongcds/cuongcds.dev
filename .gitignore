@@ -1,4 +1,6 @@
 dist
+.astro/
+test-results/
 .wrangler
 .output
 .vercel
@@ -27,6 +29,6 @@ gitignore
 .DS_Store
 Thumbs.db
 
-# Generated at build (npm run gen)
+# Generated stats cache
 src/generated/
 file-routes.d.ts

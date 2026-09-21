@@ -1,0 +1,15 @@
+---
+import Site from '../layouts/Site.astro';
+import { pageByPath } from '../lib/page-data';
+import { RESUME, resumeProjects, resumeLocationLine } from '../lib/resume';
+---
+<Site page={pageByPath('/resume/')}>
+  <h1>{RESUME.name}</h1><p>{RESUME.title}</p><p>{resumeLocationLine()}</p>
+  <nav aria-label="Résumé formats" class="format-nav"><a class="pill" href="/resume.pdf">PDF</a><a class="pill" href="/resume.txt">Text</a><a class="pill" href="/resume.llm.txt">Markdown</a><a class="pill" href="/resume.json">JSON</a></nav>
+  <p>{RESUME.summary}</p><p><a href={`mailto:${RESUME.email}`}>{RESUME.email}</a></p>
+  {RESUME.openTo.length > 0 && <p>Open to: {RESUME.openTo.join(', ')}.</p>}
+  <section><h2>Skills</h2><dl>{RESUME.skills.map(s => <><dt><strong>{s.label}</strong></dt><dd>{s.value}</dd></>)}</dl></section>
+  <section><h2>Experience</h2>{RESUME.experience.map(e => <><h3>{e.role}</h3><p>{e.org} · {e.period}</p><ul>{e.bullets.map(b => <li>{b}</li>)}</ul></>)}</section>
+  <section><h2>Projects</h2>{resumeProjects().map(p => <><h3>{p.name}</h3><p>{p.tagline}</p><ul>{p.bullets.map(b => <li>{b}</li>)}</ul></>)}</section>
+  {RESUME.education.length > 0 && <section><h2>Education</h2><ul>{RESUME.education.map(e => <li>{e.school} · {e.detail}</li>)}</ul></section>}
+</Site>

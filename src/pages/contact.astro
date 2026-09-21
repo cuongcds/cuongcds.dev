@@ -1,0 +1,11 @@
+---
+import Site from '../layouts/Site.astro';
+import { pageByPath } from '../lib/page-data';
+import { SITE } from '../site.config';
+---
+<Site page={pageByPath('/contact/')}>
+  <h1>Contact</h1>
+  <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+  <ul><li><a href={SITE.github}>GitHub</a></li><li><a href={SITE.x}>X</a></li><li><a href={SITE.company.url}>YUPCHA</a></li></ul>
+  <h2>Support the work</h2><ul>{SITE.links.filter(l => ['ko-fi', 'paypal'].includes(l.label)).map(l => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+</Site>

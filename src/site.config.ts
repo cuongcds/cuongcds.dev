@@ -1,15 +1,11 @@
-/**
- * Site configuration for the reading mode (the non-OS half of palash.dev).
- * The retro "Phosphor OS" desktop stays in the Astro repo and keeps serving
- * /os — links to it from here are plain cross-links.
- */
+/** Shared identity and public links. */
 
 export const SITE = {
   name: 'palash.dev',
   url: 'https://palash.dev',
   title: 'Palash Debnath (debpalash) — Software Engineer & Product Builder',
   description:
-    'Palash Debnath (debpalash on GitHub, idebpalash on X) builds VoiceStudio.sh, Bootable, Opal, and memXT — open-source tools for AI audio, media, boot media, and developer memory.',
+    'Palash Debnath (debpalash) builds VoiceStudio.sh, Bootable, Opal, and memXT—open-source tools for AI audio, media, boot media, and developer memory.',
   author: 'Palash Debnath',
   /** username / alternate name people also search for */
   handle: 'debpalash',

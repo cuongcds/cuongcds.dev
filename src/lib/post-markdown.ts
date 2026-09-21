@@ -3,9 +3,7 @@ import { SITE } from '../site.config';
 
 /**
  * Raw markdown mirror of each post at /blog/<slug>.md — the convention AI
- * agents fetch instead of scraping HTML. Served from the middleware chain
- * (not a file route: the router's ":slug.md" pattern matches whole segments
- * and would swallow the post pages themselves).
+ * agents can fetch instead of scraping HTML. Prerendered by the Astro endpoint.
  */
 export function servePostMarkdown(request: Request): Response | undefined {
   const slug = new URL(request.url).pathname.match(/^\/blog\/([^/]+)\.md$/)?.[1];

@@ -1,0 +1,26 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Site from '../../layouts/Site.astro';
+import { blogEntries, posts } from '../../lib/content';
+import { pageByPath } from '../../lib/page-data';
+export function getStaticPaths() { return blogEntries.map(entry => ({ params: { slug: entry.id }, props: { entry } })); }
+interface Props { entry: CollectionEntry<'blog'> }
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const page = pageByPath(`/blog/${entry.id}/`);
+const post = page.post!;
+const related = posts.filter(p => p.id !== post.id && p.tags.some(t => post.tags.includes(t))).slice(0, 3);
+---
+<Site page={page}>
+  <article class="post">
+    <header class="post-header"><p><a class="pill" href="/blog/">← Writing</a></p><h1>{post.title}</h1>
+      <p class="post-byline"><a href="/" rel="author">Palash Debnath</a> · <time datetime={post.publishDate.toISOString()}>{post.publishDate.toISOString().slice(0, 10)}</time> · {Math.max(1, Math.ceil(post.wordCount / 220))} min read</p>
+      {post.updatedDate && <p class="post-byline">Updated <time datetime={post.updatedDate.toISOString()}>{post.updatedDate.toISOString().slice(0, 10)}</time></p>}
+      <p class="post-lede">{post.description}</p>
+      <p><a class="pill" href={`/blog/${post.id}.md`}>Markdown</a></p>
+    </header>
+    {headings.length > 2 && <nav aria-label="On this page"><details class="post-toc"><summary>On this page</summary><ul>{headings.filter(h => h.depth === 2).map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></details></nav>}
+    <Content />
+  </article>
+  {related.length > 0 && <section><h2>Related articles</h2><ul>{related.map(p => <li><a href={`/blog/${p.id}/`}>{p.title}</a></li>)}</ul></section>}
+</Site>

@@ -21,10 +21,9 @@ memXT: https://palash.dev/memxt/
 memXT source: https://github.com/Yupcha/memXT
 
 /* SITE */
-Built with: SolidJS, TypeScript, CSS, Cloudflare Workers
+Built with: Astro, SolidJS, Base UI, Unhead, TypeScript, Cloudflare
 Source: https://github.com/debpalash/palash.dev
 RSS: https://palash.dev/rss.xml
 LLM context: https://palash.dev/llms.txt
 /* THANKS */
-Fonts: Space Grotesk and IBM Plex Mono via Fontsource
-Photoswipe: https://photoswipe.com/
+Social card font: IBM Plex Mono via Fontsource

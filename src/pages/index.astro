@@ -1,0 +1,32 @@
+---
+import Site from '../layouts/Site.astro';
+import Project from '../components/Project.astro';
+import { products, posts } from '../lib/content';
+import { pageByPath } from '../lib/page-data';
+---
+<Site page={pageByPath('/')}>
+  <p class="hero-kicker">Player one · Software engineer</p>
+  <h1>Palash Debnath</h1>
+  <p class="hero-lede">I build open-source desktop apps and developer tools in Agartala, India.</p>
+  <section aria-labelledby="work"><h2 id="work">Selected work</h2>
+    <div class="level-select">{products.map((product, i) => <Project product={product} level={i + 1} />)}</div>
+  </section>
+  <section aria-labelledby="writing"><h2 id="writing">Recent writing</h2>
+    <ul>{posts.slice(0, 5).map(p => <li><a href={`/blog/${p.id}/`}>{p.title}</a> · <time datetime={p.publishDate.toISOString()}>{p.publishDate.toISOString().slice(0, 10)}</time></li>)}</ul>
+    <p><a class="pill" href="/blog/">All articles</a></p>
+  </section>
+</Site>
+
+<style>
+  .hero-kicker { margin: 0 0 8px; color: #0c7f78; font-family: 'IBM Plex Mono', monospace; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .hero-lede { max-width: 55ch; margin: 0; color: #333949; font-size: clamp(1.1rem, 2.2vw, 1.3rem); line-height: 1.5; }
+  .level-select { display: flex; flex-wrap: wrap; gap: 20px; }
+  .level-select > :global(*) { flex: 1 1 300px; min-width: 0; }
+</style>
+<script>
+  const id = location.hash.slice(1);
+  const product = id.match(/^prg-(omnivoice|bootable|memxt|opal)$/);
+  const post = id.match(/^doc-([a-z0-9-]+)$/);
+  if (product) location.replace(`/${product[1]}/`);
+  else if (post) location.replace(`/blog/${post[1]}/`);
+</script>

@@ -1,0 +1,59 @@
+{
+  "name": "OpenGTM",
+  "tagline": "Self-hosted Clay alternative",
+  "description": "Open-source lead sourcing, enrichment waterfalls, AI research, buying signals, and activation — in one self-hosted workspace. Unlike a hosted credit black box, OpenGTM shows the estimated bill before a run; your data stays on your machine and third-party calls use keys you choose.",
+  "audience": "GTM engineers and sales teams that want Clay-style enrichment workbooks without hosted credits, data egress, or surprise invoices.",
+  "positioning": "Your GTM data engine. Your keys. Your infrastructure.",
+  "features": [
+    {
+      "title": "Clay-style workbooks",
+      "description": "Formulas, HTTP columns, cost-ordered enrichment waterfalls, AI transforms, web research, and conditional logic — from a market, a list, or a workbook."
+    },
+    {
+      "title": "Bring your own keys",
+      "description": "BYOK enrichment across email, phone, firmographic, technographic, hiring, social, and identity providers, with spend ceilings instead of credit burn."
+    },
+    {
+      "title": "Signals in, activation out",
+      "description": "Audience loops with scheduled refresh and entry/exit events feed automations that send qualified records to HubSpot, Salesforce, Slack, Sheets, Airtable, Instantly, Smartlead, webhooks, and warehouses."
+    },
+    {
+      "title": "Agent-ready platform",
+      "description": "REST, webhooks, and a tenant-scoped, auditable MCP server with real read/write tools; PostgreSQL RLS, scoped tokens, idempotency, OIDC, SCIM, and observable workers underneath."
+    }
+  ],
+  "proof": [
+    { "value": "BYOK", "label": "keys, not credits" },
+    { "value": "Pre-run", "label": "cost estimates" },
+    { "value": "MCP", "label": "audited agent tools" }
+  ],
+  "updatedDate": "2026-09-18",
+  "url": "https://github.com/debpalash/OpenGTM",
+  "website": "https://opengtm.palash.dev",
+  "github": "https://github.com/debpalash/OpenGTM",
+  "stars": 16,
+  "license": "AGPL-3.0",
+  "pricing": "free",
+  "openSource": true,
+  "icon": "🎯",
+  "status": "live",
+  "stack": ["Python", "FastAPI", "React", "PostgreSQL", "Docker", "MCP"],
+  "order": 5,
+  "logoUrl": "https://raw.githubusercontent.com/debpalash/OpenGTM/main/apps/web/public/opengtm-lockup.svg",
+  "workImage": "https://raw.githubusercontent.com/debpalash/OpenGTM/main/docs/assets/opengtm-workbook-light.png",
+  "category": "BusinessApplication",
+  "os": "Linux, macOS, Windows (Docker)",
+  "keywords": [
+    "OpenGTM",
+    "Clay alternative",
+    "self-hosted Clay",
+    "open-source lead enrichment",
+    "GTM engineering",
+    "enrichment waterfall",
+    "buying signals",
+    "sales automation",
+    "BYOK enrichment",
+    "MCP server",
+    "Palash Debnath"
+  ]
+}

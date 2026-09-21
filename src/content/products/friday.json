@@ -1,0 +1,58 @@
+{
+  "name": "Friday",
+  "tagline": "Local-first voice assistant for Linux",
+  "description": "A private voice and text assistant for one Linux workstation: microphone input, transcription, Qwen inference, durable memory, and speech output all run locally. No hosted inference or telemetry is required for the core assistant.",
+  "audience": "Linux power users with an NVIDIA GPU who want a private assistant that can actually act on the desktop — with receipts.",
+  "positioning": "Local conversation, durable memory, and approved computer actions.",
+  "features": [
+    {
+      "title": "Talk, don't type",
+      "description": "Voice turns are heard, answered, and spoken — Parakeet ASR on CPU, Piper or OmniVoice for speech, Qwen doing the thinking, all on your machine."
+    },
+    {
+      "title": "Actions with receipts",
+      "description": "Policy checks, exact approvals, and post-action receipts sit between model output and state-changing work. The model can propose; Friday reports done only after the executor records evidence."
+    },
+    {
+      "title": "Durable local memory",
+      "description": "Transcripts, tasks, corrections, preferences, reminders, and receipts persist in SQLite — Friday recalls last week's decisions from your local graph."
+    },
+    {
+      "title": "Bounded tools",
+      "description": "File, process, browser, web, and desktop tools with granted paths and network access only for the URLs you give."
+    }
+  ],
+  "proof": [
+    { "value": "0", "label": "required hosted calls" },
+    { "value": "SQLite", "label": "durable memory" },
+    { "value": "5", "label": "bounded tool families" }
+  ],
+  "updatedDate": "2026-09-19",
+  "url": "https://github.com/debpalash/friday",
+  "website": "https://friday.palash.dev",
+  "github": "https://github.com/debpalash/friday",
+  "stars": 7,
+  "license": "Apache-2.0",
+  "pricing": "free",
+  "openSource": true,
+  "icon": "🤖",
+  "status": "alpha",
+  "stack": ["Python", "FastAPI", "Qwen", "Parakeet", "Piper", "SQLite"],
+  "order": 6,
+  "logoUrl": "https://raw.githubusercontent.com/debpalash/friday/main/assets/friday.svg",
+  "workImage": "https://raw.githubusercontent.com/debpalash/friday/main/assets/friday-interface.png",
+  "theme": "friday",
+  "category": "UtilitiesApplication",
+  "os": "Linux (NVIDIA)",
+  "keywords": [
+    "Friday",
+    "Friday voice assistant",
+    "local-first voice assistant",
+    "private AI assistant Linux",
+    "open-source voice assistant",
+    "NVIDIA GPU assistant",
+    "local Qwen assistant",
+    "computer use agent",
+    "Palash Debnath"
+  ]
+}

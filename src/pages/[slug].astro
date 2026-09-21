@@ -1,0 +1,28 @@
+---
+import Site from '../layouts/Site.astro';
+import Gallery from '../islands/solid/Gallery';
+import { products, gallery, posts, type Product } from '../lib/content';
+import { pageByPath } from '../lib/page-data';
+export function getStaticPaths() { return products.map(product => ({ params: { slug: product.id }, props: { product } })); }
+interface Props { product: Product }
+const { product: p } = Astro.props;
+const shots = gallery.filter(s => s.group === p.id);
+const related = posts.filter(post => post.tags.includes(p.id));
+---
+<Site page={pageByPath(`/${p.id}/`)}>
+  <a href="/">← Work</a>
+  <h1>{p.name}</h1><p>{p.tagline}</p>
+  <p>{p.status} · {p.license} · {p.pricing} · {p.os}</p>
+  <nav aria-label={`${p.name} links`}>
+    {p.website && <><a href={p.website}>Website</a> · </>}
+    <a href={p.github ?? p.url}>Source</a>
+    {p.github && <> · <a href={`${p.github}/releases`}>Downloads</a></>}
+  </nav>
+  <p>{p.description}</p>
+  {p.status === 'alpha' && p.id === 'bootable' && <p><strong>Alpha software.</strong> Writing erases the selected device. Check the target and keep backups.</p>}
+  <p>Built with {p.stack.join(', ')}.</p>
+  {p.features.length > 0 && <section><h2>Capabilities</h2><dl>{p.features.map(f => <><dt><strong>{f.title}</strong></dt><dd>{f.description}</dd></>)}</dl></section>}
+  {p.tables.map(t => <section><h2>{t.heading}</h2>{t.lead && <p>{t.lead}</p>}<div><table><thead><tr>{t.columns.map(c => <th scope="col">{c}</th>)}</tr></thead><tbody>{t.rows.map(row => <tr><th scope="row">{row[0]}</th>{row.slice(1).map(c => <td>{c}</td>)}</tr>)}</tbody></table></div>{t.footnote && <p>{t.footnote}</p>}</section>)}
+  {shots.length > 0 && <section><h2>Screenshots</h2><Gallery client:visible shots={shots} /></section>}
+  {related.length > 0 && <section><h2>Related writing</h2><ul>{related.map(post => <li><a href={`/blog/${post.id}/`}>{post.title}</a></li>)}</ul></section>}
+</Site>

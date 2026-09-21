@@ -1,0 +1,16 @@
+---
+import Site from '../layouts/Site.astro';
+import SocialPreview from '../islands/react/SocialPreview';
+import { pages, pageByPath, canonical, schemaFor } from '../lib/page-data';
+import { renderHead } from '../lib/head';
+const previews = pages.filter(p => !p.noIndex).map(p => ({
+  title: p.title, description: p.description, path: p.path, image: p.image,
+  canonical: canonical(p.path), schema: JSON.stringify(schemaFor(p), null, 2), head: renderHead(p).replace(/></g, '>\n<'),
+}));
+---
+<Site page={pageByPath('/preview/')}>
+  <h1>Publishing preview</h1><p>Preview generated from the same metadata as each page. Social platforms may crop or truncate differently.</p>
+  <SocialPreview pages={previews} client:load />
+  <noscript><p>Enable JavaScript to switch pages and preview formats.</p></noscript>
+  <p><a href="https://unhead.unjs.io/tools">Unhead tools</a></p>
+</Site>

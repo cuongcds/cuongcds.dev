@@ -1,0 +1,10 @@
+---
+import Site from '../layouts/Site.astro';
+import { experiments, company } from '../lib/content';
+import { pageByPath } from '../lib/page-data';
+---
+<Site page={pageByPath('/lab/')}>
+  <h1>Lab</h1>
+  <section><h2>Experiments</h2>{experiments.map(p => <article><h3><a href={p.url}>{p.name}</a></h3><p>{p.description}</p><p>{p.lang}</p></article>)}</section>
+  <section><h2>At YUPCHA</h2>{company.map(p => <article><h3><a href={p.url}>{p.name}</a></h3><p>{p.description}</p></article>)}</section>
+</Site>

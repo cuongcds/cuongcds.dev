@@ -1,0 +1,10 @@
+---
+import Site from '../layouts/Site.astro';
+import Gallery from '../islands/solid/Gallery';
+import { products, gallery } from '../lib/content';
+import { pageByPath } from '../lib/page-data';
+---
+<Site page={pageByPath('/media/')}>
+  <h1>Screenshots</h1>
+  {products.map(p => <section><h2><a href={`/${p.id}/`}>{p.name}</a></h2><Gallery client:visible shots={gallery.filter(s => s.group === p.id)} /></section>)}
+</Site>

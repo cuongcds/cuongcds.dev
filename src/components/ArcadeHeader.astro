@@ -82,10 +82,12 @@ const links = [['/', 'Work'], ['/blog/', 'Writing'], ['/lab/', 'Lab'], ['/media/
     .arcade-brand { margin-block: 4px 10px; }
   }
   @media (max-width: 680px) {
-    .arcade-bar { grid-template-columns: 1fr; grid-template-areas: 'brand' 'products' 'menu'; padding: 16px; }
-    .product-select, .site-select { justify-self: stretch; text-align: left; }
-    .site-select ul { justify-content: flex-start; }
-    .arcade-bar nav a { min-height: 44px; padding-inline: 12px; font-size: .75rem; }
-    .arcade-status { flex-wrap: wrap; }
+    .arcade-bar { grid-template-columns: 1fr; grid-template-areas: 'brand' 'products' 'menu'; gap: 10px; padding: 14px 12px 12px; }
+    .product-select, .site-select { justify-self: stretch; width: 100%; min-width: 0; text-align: left; }
+    .arcade-brand { width: 100%; min-width: 0; margin-block: 0 5px; }
+    .hud-label { margin: 0 0 4px 3px; }
+    .arcade-bar ul, .site-select ul { flex-wrap: nowrap; justify-content: flex-start; max-width: 100%; padding: 0 3px 5px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #596176 transparent; }
+    .arcade-bar nav a { min-height: 42px; padding-inline: 12px; font-size: .72rem; }
+    .arcade-status { flex-wrap: nowrap; padding-inline: 12px; font-size: clamp(.54rem, 2vw, .66rem); white-space: nowrap; }
   }
 </style>

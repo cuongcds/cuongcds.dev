@@ -1,27 +1,102 @@
 ---
 import Site from '../layouts/Site.astro';
 import Project from '../components/Project.astro';
-import { products, posts } from '../lib/content';
+import { products, posts, totalStars } from '../lib/content';
 import { pageByPath } from '../lib/page-data';
 ---
 <Site page={pageByPath('/')}>
-  <p class="hero-kicker">Player one · Software engineer</p>
-  <h1>Palash Debnath</h1>
-  <p class="hero-lede">I build open-source desktop apps and developer tools in Agartala, India.</p>
-  <section aria-labelledby="work"><h2 id="work">Selected work</h2>
+  <section class="journey-hero" aria-labelledby="home-title">
+    <div class="hero-copy">
+      <p class="hero-kicker">Palash Debnath · Agartala, India</p>
+      <h1 id="home-title">Tools for the long road</h1>
+      <p class="hero-lede">Open-source desktop apps and developer tools built to keep people in control of their work.</p>
+      <div class="hero-actions"><a class="pill" href="#work">Enter the workshop</a><a href="/resume/">Read the field record →</a></div>
+      <dl class="hero-stats">
+        <div><dt>{products.length}</dt><dd>machines</dd></div>
+        <div><dt>{posts.length}</dt><dd>field notes</dd></div>
+        <div><dt>{Math.floor(totalStars / 1000)}k+</dt><dd>GitHub stars</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-scene">
+      <figcaption>Field station 23.84° N · systems online</figcaption>
+      <svg viewBox="0 0 640 390" role="img" aria-label="An original prehistoric roadside field station at dusk">
+        <defs>
+          <linearGradient id="field-sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#924437"/><stop offset="1" stop-color="#232739"/></linearGradient>
+          <linearGradient id="headlight" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c8b36a" stop-opacity=".75"/><stop offset="1" stop-color="#c8b36a" stop-opacity="0"/></linearGradient>
+        </defs>
+        <rect width="640" height="390" rx="18" fill="url(#field-sky)"/>
+        <circle cx="466" cy="96" r="42" fill="#b69a48" opacity=".8"/>
+        <path d="M0 185 86 135l76 39 105-62 82 56 101-43 96 48 94-28v113H0Z" fill="#302c42"/>
+        <path d="M0 216c92-25 163-9 242-26 82-18 151-5 223 8 72 12 116 3 175-8v88H0Z" fill="#171d2a"/>
+        <g fill="#101620" opacity=".95">
+          <path d="M434 203c16-28 30-53 49-59 12-4 25 1 30 11 5 9 3 20-4 28-6 8-17 13-23 21-7 8-8 20-6 31h-33c3-13 1-24-7-32-6-6-12-12-6-20Z"/>
+          <path d="M445 206c-30-8-62-4-87 10-19 11-34 28-55 34 28 2 52-7 73-21 19-12 44-12 66-4Z"/>
+          <path d="m449 227-13 48h17l10-45m10-2 11 47h18l-18-54"/>
+        </g>
+        <path d="M188 390 274 230h92l86 160Z" fill="#0c111b"/>
+        <path d="m305 248 14-18h9l14 18Zm-18 45h73l15 30H272Z" fill="#a58c43"/>
+        <path d="M186 317h267v73H186Z" fill="#0a0e16" opacity=".7"/>
+        <path d="m222 328 45-34h112l44 34 28 8v33H193v-33Z" fill="#222a35" stroke="#090c13" stroke-width="6"/>
+        <path d="m278 299 24-28h52l22 28Z" fill="#536d83"/>
+        <circle cx="252" cy="367" r="24" fill="#090c13" stroke="#596176" stroke-width="6"/><circle cx="393" cy="367" r="24" fill="#090c13" stroke="#596176" stroke-width="6"/>
+        <path d="M203 339h47l-30 42h-48Zm234 0h-47l30 42h48Z" fill="url(#headlight)"/>
+        <g fill="#ede7d8"><rect x="30" y="30" width="112" height="32" rx="4" opacity=".9"/><path d="M44 42h84v4H44Zm0 9h53v3H44Z" fill="#171a22"/></g>
+      </svg>
+    </figure>
+  </section>
+  <section class="workshop" aria-labelledby="work"><div class="section-intro"><p>Six independent systems. One workshop.</p><h2 id="work">Machines in the workshop</h2></div>
     <div class="level-select">{products.map((product, i) => <Project product={product} level={i + 1} />)}</div>
   </section>
-  <section aria-labelledby="writing"><h2 id="writing">Recent writing</h2>
-    <ul>{posts.slice(0, 5).map(p => <li><a href={`/blog/${p.id}/`}>{p.title}</a> · <time datetime={p.publishDate.toISOString()}>{p.publishDate.toISOString().slice(0, 10)}</time></li>)}</ul>
+  <section class="dispatches" aria-labelledby="writing"><p class="section-kicker">Dispatch log</p><h2 id="writing">Field notes</h2>
+    <ol>{posts.slice(0, 5).map((p, i) => <li><span>{String(i + 1).padStart(2, '0')}</span><a href={`/blog/${p.id}/`}>{p.title}</a><time datetime={p.publishDate.toISOString()}>{p.publishDate.toISOString().slice(0, 10)}</time></li>)}</ol>
     <p><a class="pill" href="/blog/">All articles</a></p>
   </section>
 </Site>
 
 <style>
-  .hero-kicker { margin: 0 0 8px; color: #326e6a; font-family: 'IBM Plex Mono', monospace; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .hero-lede { max-width: 55ch; margin: 0; color: #333949; font-size: clamp(1.1rem, 2.2vw, 1.3rem); line-height: 1.5; }
-  .level-select { display: flex; flex-wrap: wrap; gap: 20px; }
-  .level-select > :global(*) { flex: 1 1 300px; min-width: 0; }
+  .journey-hero, .workshop { width: min(1080px, calc(100vw - 36px)); margin-inline: 50%; transform: translateX(-50%); }
+  .journey-hero { display: grid; grid-template-columns: minmax(300px, .8fr) minmax(420px, 1.2fr); align-items: stretch; gap: clamp(24px, 5vw, 64px); margin-bottom: 72px; }
+  .hero-copy { align-self: center; }
+  .hero-kicker, .section-kicker, .section-intro > p { margin: 0 0 10px; color: #326e6a; font-family: 'IBM Plex Mono', monospace; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .journey-hero h1 { font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: .98; text-wrap: balance; }
+  .hero-lede { max-width: 42ch; margin: 0; color: #333949; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.55; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 26px; font-family: 'IBM Plex Mono', monospace; font-size: .76rem; font-weight: 700; text-transform: uppercase; }
+  .hero-stats { display: flex; gap: clamp(20px, 4vw, 42px); margin: 34px 0 0; padding-top: 18px; border-top: 2px solid #bbb19d; }
+  .hero-stats div { display: grid; gap: 0; }
+  .hero-stats dt { font-family: Bungee, system-ui, sans-serif; font-size: 1.45rem; line-height: 1; }
+  .hero-stats dd { margin: 6px 0 0; padding: 0; border: 0; color: #626977; font-family: 'IBM Plex Mono', monospace; font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
+  .hero-scene { position: relative; align-self: center; margin: 0; padding: 8px; background: #111722; border: 3px solid #171a22; border-radius: 18px; box-shadow: 10px 10px 0 #15101c; overflow: hidden; }
+  .hero-scene svg { display: block; width: 100%; border-radius: 10px; }
+  .hero-scene figcaption { position: absolute; z-index: 1; right: 18px; bottom: 16px; margin: 0; padding: 5px 8px; color: #9eb56a; background: rgba(9, 12, 19, .86); font-family: 'IBM Plex Mono', monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+  .section-intro { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 22px; }
+  .section-intro > p { order: 2; max-width: 28ch; color: #69707b; text-align: right; }
+  .section-intro h2 { flex: 1; margin: 0; }
+  .level-select { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .dispatches { margin-top: 72px; }
+  .dispatches h2 { margin-top: 0; }
+  .dispatches ol { margin: 0; padding: 0; border-top: 2px solid #171a22; list-style: none; }
+  .dispatches li { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: baseline; gap: 12px; padding: 14px 4px; border-bottom: 1px solid #bbb19d; }
+  .dispatches li > span, .dispatches time { color: #69707b; font-family: 'IBM Plex Mono', monospace; font-size: .7rem; }
+  .dispatches a { font-size: 1.02rem; font-weight: 650; }
+  @media (max-width: 860px) {
+    .journey-hero { grid-template-columns: 1fr; }
+    .hero-scene { order: -1; }
+    .hero-scene svg { max-height: 420px; object-fit: cover; }
+  }
+  @media (max-width: 680px) {
+    .journey-hero, .workshop { width: min(100vw - 24px, 1080px); }
+    .journey-hero { gap: 28px; margin-bottom: 54px; }
+    .journey-hero h1 { font-size: clamp(2rem, 12vw, 3.2rem); }
+    .hero-scene { padding: 5px; border-radius: 12px; box-shadow: 6px 6px 0 #15101c; }
+    .hero-scene figcaption { right: 11px; bottom: 10px; max-width: calc(100% - 22px); }
+    .hero-stats { justify-content: space-between; gap: 12px; }
+    .section-intro { display: block; }
+    .section-intro > p { margin-bottom: 12px; text-align: left; }
+    .level-select { grid-template-columns: 1fr; gap: 20px; }
+    .dispatches { margin-top: 56px; }
+    .dispatches li { grid-template-columns: 26px minmax(0, 1fr); }
+    .dispatches time { grid-column: 2; }
+  }
 </style>
 <script>
   const id = location.hash.slice(1);

@@ -18,6 +18,7 @@ try {
     await page.goto(origin + route);
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.locator('nav[aria-label="Products"] a').count(), 6);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), `${route} overflows the mobile viewport`);
   }
   await page.goto(origin + '/search/?q=bootable&kind=project');
   await page.getByRole('status').filter({ hasText: '1 results' }).waitFor();

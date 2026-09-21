@@ -26,7 +26,7 @@ const { product: p, level } = Astro.props;
   .machine-card {
     --machine-accent: #397c79;
     position: relative; overflow: hidden; min-height: 270px;
-    background-color: #f5f0e5;
+    background-color: var(--surface);
     background-image: linear-gradient(135deg, color-mix(in srgb, var(--machine-accent) 9%, transparent), transparent 42%), repeating-linear-gradient(0deg, rgba(21, 24, 33, .025) 0 2px, transparent 2px 5px);
   }
   .machine-card::after {
@@ -38,20 +38,20 @@ const { product: p, level } = Astro.props;
     content: ''; position: absolute; inset: 0 0 auto 0; height: 6px;
     background: var(--machine-accent);
   }
-  .machine-omnivoice { --machine-accent: #397c79; }
-  .machine-bootable { --machine-accent: #a94b42; }
-  .machine-memxt { --machine-accent: #71844c; }
-  .machine-opal { --machine-accent: #66587c; }
-  .machine-opengtm { --machine-accent: #9a693f; }
-  .machine-friday { --machine-accent: #536d83; }
+  .machine-omnivoice { --machine-accent: #326d69; }
+  .machine-bootable { --machine-accent: #8b4741; }
+  .machine-memxt { --machine-accent: #66744d; }
+  .machine-opal { --machine-accent: #62566f; }
+  .machine-opengtm { --machine-accent: #826044; }
+  .machine-friday { --machine-accent: #4c6575; }
 
   .machine-hud { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; font-family: 'IBM Plex Mono', monospace; text-align: left; }
   .machine-index { color: var(--machine-accent); font-size: .72rem; font-weight: 700; letter-spacing: .12em; }
   .level-status { padding: 2px 8px; border: 2px solid currentColor; border-radius: 999px; font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-  .status-live .level-status { color: #32633f; background: #dbe5d8; }
-  .status-alpha .level-status { color: #873c35; background: #eadbd5; }
-  .status-beta .level-status { color: #326e6a; background: #d7e4e1; }
-  .status-coming-soon .level-status { color: #705c22; background: #ded2ad; }
+  .status-live .level-status { color: #31583b; background: #ced7c9; }
+  .status-alpha .level-status { color: #743b36; background: #d9c8c3; }
+  .status-beta .level-status { color: #315f5c; background: #c7d5d2; }
+  .status-coming-soon .level-status { color: #62582f; background: #d1cbb2; }
   .level-score { margin-left: auto; color: #5a6376; font-size: .7rem; font-weight: 700; }
   .machine-body { display: grid; grid-template-columns: 132px minmax(0, 1fr); align-items: center; gap: 18px; }
   .machine-visual { position: relative; display: grid; place-items: center; min-height: 155px; border-right: 2px solid color-mix(in srgb, var(--machine-accent) 45%, transparent); }

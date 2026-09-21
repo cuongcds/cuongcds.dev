@@ -14,7 +14,7 @@ const links = [['/', 'Work'], ['/blog/', 'Writing'], ['/lab/', 'Lab'], ['/media/
     <svg class="arcade-scene" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
       <defs>
         <linearGradient id="arcade-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#a84334"/><stop offset="1" stop-color="#b9743f"/>
+          <stop offset="0" stop-color="#673a3c"/><stop offset="1" stop-color="#865044"/>
         </linearGradient>
         <linearGradient id="arcade-road" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#333846"/><stop offset="1" stop-color="#121722"/>
@@ -25,11 +25,11 @@ const links = [['/', 'Work'], ['/blog/', 'Writing'], ['/lab/', 'Lab'], ['/media/
         <path d="M180 42h64v12h-64Zm16-13h36v12h-36Z"/>
         <path d="M1180 56h72v12h-72Zm20-13h40v12h-40Z"/>
       </g>
-      <circle cx="720" cy="196" r="52" fill="#b69a48"/>
-      <path d="M0 190l110-40 90 28 130-42 155 48 130-32 94 27 150-44 135 48 132-28 144 34 100-30 70 17V320H0Z" fill="#3a3047"/>
-      <path d="M0 214l210-24 170 18 230-26 186 30 208-24 190 22 246-18V320H0Z" fill="#202637"/>
+      <circle cx="720" cy="196" r="52" fill="#90815a"/>
+      <path d="M0 190l110-40 90 28 130-42 155 48 130-32 94 27 150-44 135 48 132-28 144 34 100-30 70 17V320H0Z" fill="#332f3e"/>
+      <path d="M0 214l210-24 170 18 230-26 186 30 208-24 190 22 246-18V320H0Z" fill="#1b2530"/>
       <path d="M520 320l152-124h96l152 124Z" fill="url(#arcade-road)"/>
-      <path d="M713 204h14l6 16h-26Zm-11 34h40l8 22h-56Zm-16 46h56l10 28h-76Z" fill="#b69a48"/>
+      <path d="M713 204h14l6 16h-26Zm-11 34h40l8 22h-56Zm-16 46h56l10 28h-76Z" fill="#8d8158"/>
       <g fill="#111722">
         <path d="M60 216c15-30 38-34 54-12-19-8-34 5-43 28Zm36-30l8-22 6 25-7 18Z"/>
         <path d="M1330 218c13-30 36-36 54-16-19-6-34 8-41 28Zm32-32l7-22 7 22-6 18Z"/>
@@ -58,13 +58,13 @@ const links = [['/', 'Work'], ['/blog/', 'Writing'], ['/lab/', 'Lab'], ['/media/
 <style>
   .skip-link { position: absolute; z-index: 100; top: 8px; left: 8px; padding: 10px 14px; color: #111722; background: #c8b36a; transform: translateY(-150%); }
   .skip-link:focus { transform: translateY(0); }
-  .arcade-header { color: #eee7d7; background: #111722; border-bottom: 5px solid #b69a48; font-family: 'IBM Plex Mono', monospace; }
+  .arcade-header { color: #e8e5dc; background: #101720; border-bottom: 5px solid #736c52; font-family: 'IBM Plex Mono', monospace; }
   .arcade-stage { position: relative; }
   .arcade-scene { position: absolute; inset: 0; width: 100%; height: 100%; }
   .arcade-bar { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-areas: 'products brand menu'; align-items: center; gap: 20px; min-height: 128px; padding: 18px clamp(16px, 3vw, 48px) 34px; }
   .product-select { grid-area: products; }
   .site-select { grid-area: menu; justify-self: end; text-align: right; }
-  .hud-label { display: block; margin-bottom: 7px; color: #c8b36a; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(5, 7, 12, .55); }
+  .hud-label { display: block; margin-bottom: 7px; color: #b1b59a; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; text-shadow: 1px 1px 0 rgba(5, 7, 12, .55); }
   .arcade-bar ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
   .site-select ul { justify-content: flex-end; }
   .arcade-bar nav a { display: inline-flex; align-items: center; min-height: 34px; padding: 4px 10px; color: #eee7d7; background: rgba(9, 12, 19, .72); border: 2px solid #596176; border-radius: 999px; font-size: clamp(.65rem, .75vw, .78rem); text-decoration: none; white-space: nowrap; box-shadow: 2px 2px 0 rgba(5, 7, 12, .8); }
@@ -72,11 +72,11 @@ const links = [['/', 'Work'], ['/blog/', 'Writing'], ['/lab/', 'Lab'], ['/media/
   .product-select li:nth-child(2) a { border-color: #397c79; }
   .product-select li:nth-child(3) a { border-color: #849b52; }
   .product-select li:nth-child(4) a { border-color: #775b88; }
-  .arcade-bar nav a:hover, .arcade-bar nav a[aria-current='page'] { color: #111722; background: #c8b36a; border-color: #c8b36a; }
+  .arcade-bar nav a:hover, .arcade-bar nav a[aria-current='page'] { color: #101720; background: #aeb394; border-color: #aeb394; }
   .arcade-bar a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
   .arcade-brand { grid-area: brand; display: grid; justify-items: center; color: #eee7d7; font-family: Bungee, system-ui, sans-serif; font-size: clamp(1.25rem, 2vw, 2rem); line-height: .88; text-align: center; text-decoration: none; text-transform: uppercase; text-shadow: 3px 3px 0 #6e2d28, 6px 6px 0 #15101c; transform: skew(-3deg); }
-  .arcade-brand span:last-child { color: #c8b36a; }
-  .arcade-status { position: relative; display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 8px clamp(16px, 3vw, 48px) 10px; color: #9eb56a; background: rgba(9, 12, 19, .66); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
+  .arcade-brand span:last-child { color: #a99a6a; }
+  .arcade-status { position: relative; display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 8px clamp(16px, 3vw, 48px) 10px; color: #aebd91; background: rgba(9, 12, 19, .72); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
   @media (max-width: 1100px) {
     .arcade-bar { grid-template-columns: 1fr 1fr; grid-template-areas: 'brand brand' 'products menu'; }
     .arcade-brand { margin-block: 4px 10px; }

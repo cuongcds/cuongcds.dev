@@ -21,14 +21,16 @@ const { page } = Astro.props;
 
 <style is:global>
   :root {
-    --ink: #171a22;
-    --night: #111722;
-    --paper: #ede7d8;
-    --surface: #f5f0e5;
-    --brass: #b69a48;
-    --brick: #a94b42;
-    --teal: #397c79;
-    --moss: #849b52;
+    --ink: #171b22;
+    --night: #101720;
+    --paper: #d9d6ca;
+    --surface: #e8e5dc;
+    --brass: #8d8158;
+    --brick: #88453f;
+    --teal: #2f6b68;
+    --moss: #6d7953;
+    --muted: #59616c;
+    --line: #979286;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -39,8 +41,8 @@ const { page } = Astro.props;
 
   /* Headings — Bungee display type with hard arcade shadows */
   h1, h2 { font-family: Bungee, system-ui, sans-serif; font-weight: 400; line-height: 1.12; text-transform: uppercase; letter-spacing: .015em; }
-  h1 { margin: 0 0 18px; max-width: 20ch; font-size: clamp(1.75rem, 4.5vw, 2.55rem); text-shadow: 3px 3px 0 var(--brick), 6px 6px 0 #15101c; }
-  h2 { margin: 40px 0 14px; padding-bottom: 8px; font-size: clamp(1.15rem, 3vw, 1.5rem); border-bottom: 4px solid #151821; box-shadow: 0 4px 0 var(--brass); }
+  h1 { margin: 0 0 18px; max-width: 20ch; font-size: clamp(1.75rem, 4.5vw, 2.55rem); text-shadow: 3px 3px 0 var(--brick), 6px 6px 0 #0c1118; }
+  h2 { margin: 40px 0 14px; padding-bottom: 8px; font-size: clamp(1.15rem, 3vw, 1.5rem); border-bottom: 4px solid var(--ink); box-shadow: 0 4px 0 var(--brass); }
   h2::before { content: '\25B6'; margin-right: 10px; color: var(--brick); font-size: .8em; }
   h3, h4 { font-family: 'Instrument Sans Variable', system-ui, sans-serif; font-weight: 750; line-height: 1.25; letter-spacing: -.015em; }
   h3 { margin: 28px 0 8px; font-size: clamp(1.15rem, 2.4vw, 1.35rem); }
@@ -49,8 +51,8 @@ const { page } = Astro.props;
   strong { color: #111722; }
 
   /* Links — chunky arcade states */
-  a { color: #286c69; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-  a:hover { color: #7f352f; background: #d1bd7a; text-decoration: none; }
+  a { color: #245f5c; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { color: #672f2b; background: #b9b69f; text-decoration: none; }
   a:focus-visible { outline: 3px solid var(--brick); outline-offset: 2px; }
 
   /* Cards — boxed with hard drop shadows (projects, lab, blog list) */
@@ -91,8 +93,8 @@ const { page } = Astro.props;
   button:active { translate: 2px 2px; box-shadow: 1px 1px 0 #15101c; }
 
   /* Pills — coin-slot action buttons */
-  .pill { display: inline-flex; align-items: center; min-height: 34px; padding: 4px 14px; color: #111722; background: #c8b36a; border: 2px solid #151821; border-radius: 999px; box-shadow: 3px 3px 0 #15101c; font-family: 'IBM Plex Mono', monospace; font-size: .76rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; transition: translate .1s ease, box-shadow .1s ease; }
-  .pill:hover { color: #111722; background: var(--paper); translate: -1px -1px; box-shadow: 4px 4px 0 var(--brick); }
+  .pill { display: inline-flex; align-items: center; min-height: 34px; padding: 4px 14px; color: var(--night); background: #a9ad91; border: 2px solid var(--ink); border-radius: 999px; box-shadow: 3px 3px 0 #0c1118; font-family: 'IBM Plex Mono', monospace; font-size: .76rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; transition: translate .1s ease, box-shadow .1s ease; }
+  .pill:hover { color: var(--night); background: var(--surface); translate: -1px -1px; box-shadow: 4px 4px 0 var(--brick); }
   .pill:active { translate: 2px 2px; box-shadow: 1px 1px 0 #15101c; }
 
   /* Blog post — long-form reading, no card cage */
